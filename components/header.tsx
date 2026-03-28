@@ -54,10 +54,10 @@ export function Header() {
         )}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center justify-between h-16 lg:h-20">
+          <nav className="flex items-center justify-between h-16 lg:h-20" style={{ color: "#fdf6f6" }}>
             {/* Logo */}
             <a href="#" className="flex-shrink-0">
-              <span className="font-serif text-2xl lg:text-3xl font-medium tracking-tight text-foreground">
+              <span className="font-serif text-2xl lg:text-3xl font-medium tracking-tight" style={{ color: "#fdf6f6" }}>
                 VELORA
               </span>
             </a>
@@ -69,7 +69,8 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-200 after:absolute after:left-0 after:bottom-[-4px] after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                  className="relative text-sm font-medium transition-colors duration-200 after:absolute after:left-0 after:bottom-[-4px] after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                  style={{ color: "#fdf6f6" }}
                 >
                   {link.label}
                 </a>
@@ -88,10 +89,11 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 text-foreground"
+              className="lg:hidden p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
+              style={{ color: "#fdf6f6" }}
             >
               {isMobileMenuOpen ? (
                 <X className="h-6 w-6" />
