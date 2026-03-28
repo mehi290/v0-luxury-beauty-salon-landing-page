@@ -4,22 +4,14 @@ import { useEffect, useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronDown } from "lucide-react"
-import {
-  VogueArabiaLogo,
-  EmiratesWomanLogo,
-  BazaarArabiaLogo,
-  GraziaArabiaLogo,
-  LonelyPlanetLogo,
-  TimeOutLogo,
-} from "./logos/publication-logos"
 
 const seenInBrands = [
-  { id: "vogue", component: VogueArabiaLogo },
-  { id: "emirates", component: EmiratesWomanLogo },
-  { id: "bazaar", component: BazaarArabiaLogo },
-  { id: "grazia", component: GraziaArabiaLogo },
-  { id: "lonelyplanet", component: LonelyPlanetLogo },
-  { id: "timeout", component: TimeOutLogo },
+  "VOGUE",
+  "HARPER'S BAZAAR",
+  "ELLE",
+  "MARIE CLAIRE",
+  "GRAZIA",
+  "COSMOPOLITAN",
 ]
 
 export function Hero() {
@@ -57,7 +49,7 @@ export function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-start justify-center pt-20 md:pt-32 lg:pt-40 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero section"
     >
       {/* Background Image */}
@@ -74,7 +66,7 @@ export function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center w-full">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center pt-20">
         <div className="max-w-4xl mx-auto">
           {/* Tagline */}
           <p className="text-primary font-medium text-sm sm:text-base tracking-widest uppercase mb-6 animate-fade-up">
@@ -126,40 +118,34 @@ export function Hero() {
       {/* Seen In Marquee */}
       <div className="absolute bottom-0 left-0 right-0 z-10 bg-background/95 backdrop-blur-sm py-6 border-t border-border">
         <div className="mx-auto max-w-7xl px-4">
-          <p className="text-center text-muted-foreground text-xs uppercase tracking-widest mb-6">
+          <p className="text-center text-muted-foreground text-xs uppercase tracking-widest mb-4">
             As Seen In
           </p>
         </div>
         <div className="relative overflow-hidden">
           <div className="flex animate-marquee">
             {/* First set */}
-            {seenInBrands.map((brand) => {
-              const LogoComponent = brand.component
-              return (
-                <div
-                  key={`brand-1-${brand.id}`}
-                  className="flex-shrink-0 px-6 sm:px-10 flex items-center justify-center"
-                >
-                  <div className="text-foreground/70 hover:text-primary transition-colors duration-300 h-12">
-                    <LogoComponent />
-                  </div>
-                </div>
-              )
-            })}
+            {seenInBrands.map((brand, index) => (
+              <div
+                key={`brand-1-${index}`}
+                className="flex-shrink-0 px-8 sm:px-12"
+              >
+                <span className="font-serif text-lg sm:text-xl text-foreground/70 whitespace-nowrap">
+                  {brand}
+                </span>
+              </div>
+            ))}
             {/* Duplicate for seamless loop */}
-            {seenInBrands.map((brand) => {
-              const LogoComponent = brand.component
-              return (
-                <div
-                  key={`brand-2-${brand.id}`}
-                  className="flex-shrink-0 px-6 sm:px-10 flex items-center justify-center"
-                >
-                  <div className="text-foreground/70 hover:text-primary transition-colors duration-300 h-12">
-                    <LogoComponent />
-                  </div>
-                </div>
-              )
-            })}
+            {seenInBrands.map((brand, index) => (
+              <div
+                key={`brand-2-${index}`}
+                className="flex-shrink-0 px-8 sm:px-12"
+              >
+                <span className="font-serif text-lg sm:text-xl text-foreground/70 whitespace-nowrap">
+                  {brand}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
