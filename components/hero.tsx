@@ -74,7 +74,7 @@ export function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center pt-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center pt-0">
         <div className="max-w-4xl mx-auto">
           {/* Tagline */}
           <p className="text-primary font-medium text-sm sm:text-base tracking-widest uppercase mb-6 animate-fade-up">
