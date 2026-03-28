@@ -121,7 +121,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
             {service.description}
           </p>
           <div className="flex items-center justify-between">
-            <span className="text-primary font-medium text-sm">
+            <span className="font-medium text-sm" style={{ color: service.id === 4 ? "#fefbfb" : service.id === 2 ? "#faf3f3" : "#fefbfb" }}>
               {service.price}
             </span>
             <Button
