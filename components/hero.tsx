@@ -57,7 +57,7 @@ export function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-start justify-center pt-20 md:pt-32 lg:pt-40 overflow-hidden"
       aria-label="Hero section"
     >
       {/* Background Image */}
@@ -74,7 +74,7 @@ export function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center pt-0">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center w-full">
         <div className="max-w-4xl mx-auto">
           {/* Tagline */}
           <p className="text-primary font-medium text-sm sm:text-base tracking-widest uppercase mb-6 animate-fade-up">
