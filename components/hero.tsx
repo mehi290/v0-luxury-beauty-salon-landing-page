@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronDown } from "lucide-react"
+import { HeroVideo } from "./hero-video"
 
 const seenInBrands = [
   "VOGUE",
