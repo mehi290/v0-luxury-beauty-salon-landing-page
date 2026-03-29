@@ -77,25 +77,25 @@ The goal is to move from a static luxury feel to a dynamic, "living" brand exper
 ## **Progress Checklist**
 
 ### **Phase 1: Core Video Integration**
-- [ ] Source/Generate cinematic background video for Hero section
-- [ ] Implement Hero background video loop with fallback image
-- [ ] Source/Generate short service-specific video loops (Hair, Color, Bridal, etc.)
-- [ ] Update `ServiceCard` to handle video hover states with graceful transitions
-- [ ] Add parallax scrolling to the Hero and Membership sections
-- [ ] Refine button hover effects with "luxury" easing
+- [x] Source/Generate cinematic background video for Hero section
+- [x] Implement Hero background video loop with fallback image
+- [x] Source/Generate short service-specific video loops (Hair, Color, Bridal, etc.)
+- [x] Update `ServiceCard` to handle video hover states with graceful transitions
+- [x] Add parallax scrolling to the Hero and Membership sections
+- [x] Refine button hover effects with "luxury" easing
 
 ### **Phase 2: Video Testimonials & Branding**
-- [ ] Create/Update Testimonial component to support video playback
-- [ ] Implement a custom video modal or inline player for testimonials
-- [ ] Apply global cinematic CSS filters to all visual assets
-- [ ] Adjust global typography (letter-spacing, line-height, serif weighting)
-- [ ] Increase global whitespace (padding-y) for section headers
+- [x] Create/Update Testimonial component to support video playback
+- [x] Implement a custom video modal or inline player for testimonials
+- [x] Apply global cinematic CSS filters to all visual assets
+- [x] Adjust global typography (letter-spacing, line-height, serif weighting)
+- [x] Increase global whitespace (padding-y) for section headers
 
 ### **Phase 3: Immersive Experience**
-- [ ] Create "The Experience" step-by-step video component
-- [ ] Integrate Founder/Stylist spotlight video section
-- [ ] Implement advanced scroll-triggered entrance animations for all sections
-- [ ] Add final luxury accents (subtle borders, refined dividers)
+- [x] Create "The Experience" step-by-step video component
+- [x] Integrate Founder/Stylist spotlight video section
+- [x] Implement advanced scroll-triggered entrance animations for all sections
+- [x] Add final luxury accents (subtle borders, refined dividers)
 
 ### **Final Audit & Launch**
 - [ ] Performance audit (Lighthouse score > 90)
