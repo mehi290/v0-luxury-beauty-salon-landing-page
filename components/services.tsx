@@ -5,13 +5,23 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
-const services = [
+interface Service {
+  id: number
+  title: string
+  description: string
+  price: string
+  image: string
+  video?: string
+}
+
+const services: Service[] = [
   {
     id: 1,
     title: "Hair Styling",
     description: "Expert cuts, blowouts, and styling for every occasion",
     price: "From AED 250",
     image: "/images/services/hair-styling.jpg",
+    video: "/videos/hair-styling.mp4",
   },
   {
     id: 2,
@@ -50,7 +60,7 @@ const services = [
   },
 ]
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+function ServiceCard({ service, index }: { service: Service; index: number }) {
   const [isHovered, setIsHovered] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const cardRef = useRef<HTMLDivElement>(null)
@@ -93,15 +103,30 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
     >
       {/* Image */}
       <div className="relative aspect-[4/5] overflow-hidden">
-        <Image
-          src={service.image}
-          alt={service.title}
-          fill
-          className={cn(
-            "object-cover transition-transform duration-500",
-            isHovered && "scale-105"
-          )}
-        />
+        {service.video ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={cn(
+              "absolute inset-0 w-full h-full object-cover transition-transform duration-500",
+              isHovered && "scale-105"
+            )}
+          >
+            <source src={service.video} type="video/mp4" />
+          </video>
+        ) : (
+          <Image
+            src={service.image}
+            alt={service.title}
+            fill
+            className={cn(
+              "object-cover transition-transform duration-500",
+              isHovered && "scale-105"
+            )}
+          />
+        )}
         
         {/* Gradient Overlay */}
         <div className={cn(
