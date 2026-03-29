@@ -12,7 +12,6 @@ const services = [
     description: "Expert cuts, blowouts, and styling for every occasion",
     price: "From AED 250",
     image: "/images/services/hair-styling.jpg",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-stylist-washing-a-clients-hair-in-a-salon-43405-large.mp4",
   },
   {
     id: 2,
@@ -20,7 +19,6 @@ const services = [
     description: "Balayage, ombre, and custom color transformations",
     price: "From AED 450",
     image: "/images/services/hair-color.jpg",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-hair-stylist-working-on-a-client-43403-large.mp4",
   },
   {
     id: 3,
@@ -28,7 +26,6 @@ const services = [
     description: "Smooth, frizz-free hair that lasts for months",
     price: "From AED 800",
     image: "/images/services/keratin.jpg",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-hair-stylist-drying-the-hair-of-a-client-43401-large.mp4",
   },
   {
     id: 4,
@@ -36,7 +33,6 @@ const services = [
     description: "Complete wedding day styling and makeup",
     price: "From AED 2,500",
     image: "/images/services/bridal.jpg",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-woman-getting-her-hair-done-at-a-salon-42861-large.mp4",
   },
   {
     id: 5,
@@ -44,7 +40,6 @@ const services = [
     description: "Manicures, pedicures, and custom nail art",
     price: "From AED 150",
     image: "/images/services/nails.jpg",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-woman-getting-a-manicure-at-a-spa-42862-large.mp4",
   },
   {
     id: 6,
@@ -52,7 +47,6 @@ const services = [
     description: "Premium skincare and rejuvenating facials",
     price: "From AED 350",
     image: "/images/services/facial.jpg",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-woman-receiving-a-massage-at-a-spa-42863-large.mp4",
   },
 ]
 
@@ -97,62 +91,45 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Media: Image + Video on Hover */}
+      {/* Image */}
       <div className="relative aspect-[4/5] overflow-hidden">
-        {/* Static Image */}
         <Image
           src={service.image}
           alt={service.title}
           fill
           className={cn(
-            "object-cover transition-transform duration-700",
-            isHovered && "scale-110"
+            "object-cover transition-transform duration-500",
+            isHovered && "scale-105"
           )}
         />
         
-        {/* Cinematic Video on Hover */}
-        {service.video && (
-          <video
-            autoPlay
-            muted
-            loop
-            playsinline
-            className={cn(
-               "absolute inset-0 h-full w-full object-cover transition-opacity duration-1000",
-               isHovered ? "opacity-100" : "opacity-0"
-            )}
-          >
-            <source src={service.video} type="video/mp4" />
-          </video>
-        )}
-        
         {/* Gradient Overlay */}
         <div className={cn(
-          "absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent transition-opacity duration-500",
-          isHovered ? "opacity-100" : "opacity-80"
+          "absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent transition-opacity duration-300",
+          isHovered ? "opacity-90" : "opacity-70"
         )} />
         
         {/* Content */}
-        <div className="absolute inset-0 flex flex-col justify-end p-8">
-          <h3 className="font-serif text-2xl sm:text-3xl text-white mb-3">
+        <div className="absolute inset-0 flex flex-col justify-end p-6">
+          <h3 className="font-serif text-xl sm:text-2xl text-white mb-2">
             {service.title}
           </h3>
           <p className={cn(
-            "text-white/90 text-sm lg:text-base mb-4 transition-all duration-500",
-            isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            "text-white/80 text-sm mb-3 transition-all duration-300",
+            isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
           )}>
             {service.description}
           </p>
           <div className="flex items-center justify-between">
-            <span className="font-medium text-base tracking-wide" style={{ color: "#fefbfb" }}>
+            <span className="font-medium text-sm" style={{ color: service.id === 4 ? "#fefbfb" : service.id === 2 ? "#faf3f3" : "#fefbfb" }}>
               {service.price}
             </span>
             <Button
               size="sm"
               onClick={handleQuickBook}
               className={cn(
-                "bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-500 px-6",
-                isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                "bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300",
+                isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               )}
             >
               Quick Book

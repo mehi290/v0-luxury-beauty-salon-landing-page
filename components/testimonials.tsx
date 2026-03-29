@@ -13,7 +13,6 @@ const testimonials = [
     avatar: "/images/testimonials/avatar-1.jpg",
     rating: 5,
     text: "VELORA has completely transformed my hair care routine. The attention to detail and personalized service is unmatched in Dubai. My balayage has never looked better!",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-woman-smiling-while-getting-her-hair-washed-42860-large.mp4",
   },
   {
     id: 2,
@@ -22,7 +21,6 @@ const testimonials = [
     avatar: "/images/testimonials/avatar-2.jpg",
     rating: 5,
     text: "As someone who has tried many salons in Dubai Marina, I can confidently say VELORA is in a league of its own. The keratin treatment lasted months longer than anywhere else.",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-woman-getting-her-hair-done-at-a-salon-42861-large.mp4",
   },
   {
     id: 3,
@@ -31,7 +29,6 @@ const testimonials = [
     avatar: "/images/testimonials/avatar-3.jpg",
     rating: 5,
     text: "The bridal package exceeded all my expectations. The team understood exactly what I wanted and made me feel like a princess on my special day. Highly recommend!",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-woman-getting-a-manicure-at-a-spa-42862-large.mp4",
   },
   {
     id: 4,
@@ -140,73 +137,47 @@ export function Testimonials() {
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-                {testimonials.map((testimonial) => (
-                  <div
-                    key={testimonial.id}
-                    className="w-full flex-shrink-0 px-4"
-                  >
-                    <div className="bg-card rounded-2xl p-8 lg:p-16 shadow-xl border border-border/50 text-center relative overflow-hidden group">
-                      {/* Video Background Effect on Hover */}
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-700 pointer-events-none">
-                         {testimonial.video && (
-                           <video autoPlay muted loop playsinline className="w-full h-full object-cover grayscale">
-                             <source src={testimonial.video} type="video/mp4" />
-                           </video>
-                         )}
-                      </div>
+              {testimonials.map((testimonial) => (
+                <div
+                  key={testimonial.id}
+                  className="w-full flex-shrink-0 px-4"
+                >
+                  <div className="bg-card rounded-xl p-8 lg:p-12 shadow-sm text-center">
+                    {/* Avatar */}
+                    <div className="relative w-20 h-20 mx-auto mb-6">
+                      <Image
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        fill
+                        className="object-cover rounded-full"
+                      />
+                      <div className="absolute inset-0 rounded-full ring-2 ring-primary ring-offset-2 ring-offset-card" />
+                    </div>
 
-                      {/* Avatar */}
-                      <div className="relative w-24 h-24 mx-auto mb-8">
-                        <Image
-                          src={testimonial.avatar}
-                          alt={testimonial.name}
-                          fill
-                          className="object-cover rounded-full ring-4 ring-primary/20"
-                        />
-                        <div className="absolute inset-0 rounded-full ring-2 ring-primary ring-offset-4 ring-offset-card" />
-                      </div>
+                    {/* Rating */}
+                    <div className="flex justify-center gap-1 mb-6">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                      ))}
+                    </div>
 
-                      {/* Rating */}
-                      <div className="flex justify-center gap-1.5 mb-8">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                        ))}
-                      </div>
+                    {/* Quote */}
+                    <blockquote className="text-foreground text-lg lg:text-xl leading-relaxed mb-6">
+                      &ldquo;{testimonial.text}&rdquo;
+                    </blockquote>
 
-                      {/* Quote */}
-                      <blockquote className="font-serif text-xl lg:text-3xl italic text-foreground leading-relaxed mb-10 max-w-3xl mx-auto">
-                        &ldquo;{testimonial.text}&rdquo;
-                      </blockquote>
-
-                      {/* Author & Action */}
-                      <div className="flex flex-col items-center gap-6">
-                        <div>
-                          <p className="font-serif text-2xl text-foreground font-medium mb-1 luxury-text">
-                            {testimonial.name}
-                          </p>
-                          <p className="text-primary text-sm tracking-[0.2em] font-medium uppercase">
-                            {testimonial.role}
-                          </p>
-                        </div>
-
-                        {testimonial.video && (
-                          <Button 
-                            variant="outline" 
-                            size="sm"
-                            className="rounded-full border-primary/30 hover:bg-primary/5 px-8 flex items-center gap-2 group/btn transition-all duration-300"
-                            onClick={() => {
-                              // In a real app, this would open a Modal with the video
-                              window.open(testimonial.video, '_blank');
-                            }}
-                          >
-                            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                            Watch Experience
-                          </Button>
-                        )}
-                      </div>
+                    {/* Author */}
+                    <div>
+                      <p className="font-serif text-lg text-foreground font-medium">
+                        {testimonial.name}
+                      </p>
+                      <p className="text-primary text-sm">
+                        {testimonial.role}
+                      </p>
                     </div>
                   </div>
-                ))}
+                </div>
+              ))}
             </div>
           </div>
 

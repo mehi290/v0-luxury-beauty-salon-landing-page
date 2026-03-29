@@ -52,33 +52,17 @@ export function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero section"
     >
-      {/* Background Video/Image */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsinline
-          className="h-full w-full object-cover"
-          poster="/images/hero-salon.jpg"
-        >
-          <source 
-            src="https://assets.mixkit.co/videos/preview/mixkit-stylist-washing-a-clients-hair-in-a-salon-43405-large.mp4" 
-            type="video/mp4" 
-          />
-          {/* Fallback Image if video fails to load/play */}
-          <div className="absolute inset-0">
-            <Image
-              src="/images/hero-salon.jpg"
-              alt="Luxurious VELORA salon interior"
-              fill
-              className="object-cover"
-              priority
-              quality={90}
-            />
-          </div>
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-foreground/60 via-foreground/40 to-foreground/70 mix-blend-multiply" />
+        <Image
+          src="/images/hero-salon.jpg"
+          alt="Luxurious VELORA salon interior"
+          fill
+          className="object-cover"
+          priority
+          quality={90}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/30 to-foreground/60" />
       </div>
 
       {/* Hero Content */}
