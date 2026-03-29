@@ -12,7 +12,6 @@ const services = [
     description: "Expert cuts, blowouts, and styling for every occasion",
     price: "From AED 250",
     image: "/images/services/hair-styling.jpg",
-    video: "https://videos.pexels.com/video-files/4197809/4197809-hd_1920_1080_30fps.mp4",
   },
   {
     id: 2,
@@ -20,7 +19,6 @@ const services = [
     description: "Balayage, ombre, and custom color transformations",
     price: "From AED 450",
     image: "/images/services/hair-color.jpg",
-    video: "https://videos.pexels.com/video-files/4830545/4830545-hd_1920_1080_30fps.mp4",
   },
   {
     id: 3,
@@ -28,7 +26,6 @@ const services = [
     description: "Smooth, frizz-free hair that lasts for months",
     price: "From AED 800",
     image: "/images/services/keratin.jpg",
-    video: "https://videos.pexels.com/video-files/4193380/4193380-hd_1920_1080_30fps.mp4",
   },
   {
     id: 4,
@@ -36,7 +33,6 @@ const services = [
     description: "Complete wedding day styling and makeup",
     price: "From AED 2,500",
     image: "/images/services/bridal.jpg",
-    video: "https://videos.pexels.com/video-files/7508374/7508374-hd_1920_1080_30fps.mp4",
   },
   {
     id: 5,
@@ -44,7 +40,6 @@ const services = [
     description: "Manicures, pedicures, and custom nail art",
     price: "From AED 150",
     image: "/images/services/nails.jpg",
-    video: "https://videos.pexels.com/video-files/7587550/7587550-hd_1920_1080_30fps.mp4",
   },
   {
     id: 6,
@@ -52,16 +47,13 @@ const services = [
     description: "Premium skincare and rejuvenating facials",
     price: "From AED 350",
     image: "/images/services/facial.jpg",
-    video: "https://videos.pexels.com/video-files/8555376/8555376-hd_1920_1080_30fps.mp4",
   },
 ]
 
 function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
   const [isHovered, setIsHovered] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
-  const [showVideo, setShowVideo] = useState(false)
   const cardRef = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -81,16 +73,6 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
     return () => observer.disconnect()
   }, [])
 
-  useEffect(() => {
-    if (isHovered && videoRef.current && service.video) {
-      videoRef.current.play().catch(() => {
-        // Video autoplay may be blocked, user can click to play
-      })
-    } else if (videoRef.current) {
-      videoRef.current.pause()
-    }
-  }, [isHovered, service.video])
-
   const handleQuickBook = () => {
     const bookingSection = document.querySelector("#booking")
     if (bookingSection) {
@@ -107,53 +89,25 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       )}
       style={{ transitionDelay: `${index * 100}ms` }}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false)
-        setShowVideo(false)
-      }}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Image/Video Container */}
+      {/* Image */}
       <div className="relative aspect-[4/5] overflow-hidden">
-        {showVideo && service.video ? (
-          <video
-            ref={videoRef}
-            src={service.video}
-            className="w-full h-full object-cover"
-            muted
-            loop
-            playsInline
-          />
-        ) : (
-          <Image
-            src={service.image}
-            alt={service.title}
-            fill
-            className={cn(
-              "object-cover transition-transform duration-500",
-              isHovered && "scale-105"
-            )}
-          />
-        )}
+        <Image
+          src={service.image}
+          alt={service.title}
+          fill
+          className={cn(
+            "object-cover transition-transform duration-500",
+            isHovered && "scale-105"
+          )}
+        />
         
         {/* Gradient Overlay */}
         <div className={cn(
           "absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent transition-opacity duration-300",
           isHovered ? "opacity-90" : "opacity-70"
         )} />
-        
-        {/* Video Play Indicator */}
-        {service.video && !showVideo && isHovered && (
-          <div
-            className="absolute inset-0 flex items-center justify-center cursor-pointer"
-            onClick={() => setShowVideo(true)}
-          >
-            <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center animate-pulse">
-              <svg className="w-6 h-6 text-foreground fill-foreground ml-1" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-          </div>
-        )}
         
         {/* Content */}
         <div className="absolute inset-0 flex flex-col justify-end p-6">
