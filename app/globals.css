@@ -170,3 +170,13 @@
   background: var(--primary);
   pointer-events: none;
 }
+
+/* Hide default cursor on desktop */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-none-on-desktop {
+    cursor: none !important;
+  }
+  .cursor-none-on-desktop * {
+    cursor: none !important;
+  }
+}

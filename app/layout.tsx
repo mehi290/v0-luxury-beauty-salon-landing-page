@@ -3,6 +3,7 @@ import { Inter, Cormorant_Garamond } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
+import CursorFollower from '@/components/cursor-follower'
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -43,11 +44,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased cursor-none-on-desktop">
+        <CursorFollower />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md">
           Skip to main content
         </a>
-        {children}
+        <main id="main-content">
+          {children}
+        </main>
         <Analytics />
         <SpeedInsights />
       </body>

@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ChevronDown } from "lucide-react"
 
 const seenInBrands = [
   "VOGUE",
@@ -97,14 +96,6 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <button
-          onClick={handleScrollToServices}
-          className="absolute bottom-32 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors animate-bounce"
-          aria-label="Scroll to services"
-        >
-          <ChevronDown className="w-8 h-8" />
-        </button>
       </div>
 
       {/* Seen In Marquee */}
