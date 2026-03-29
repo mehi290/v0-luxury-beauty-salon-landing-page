@@ -68,29 +68,20 @@ export function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center pt-20">
         <div className="max-w-4xl mx-auto">
-          {/* Tagline */}
-          <p className="text-primary font-medium text-sm sm:text-base tracking-widest uppercase mb-6 animate-fade-up">
-            Dubai Marina&apos;s Premier Beauty Destination
-          </p>
-
           {/* Main Heading */}
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-white leading-tight mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             Where Beauty
             <br />
-            <span className="text-primary">Meets Artistry</span>
+            <span style={{ color: "#10100f" }}>Meets Artistry</span>
           </h1>
 
-          {/* Subheading */}
-          <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up" style={{ animationDelay: "0.2s" }}>
-            Experience luxury beauty services crafted by internationally trained stylists. Your transformation begins here.
-          </p>
-
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up pb-40" style={{ animationDelay: "0.3s" }}>
             <Button
               onClick={handleScrollToBooking}
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 btn-hover px-8 py-6 text-base w-full sm:w-auto"
+              className="bg-primary hover:bg-primary/90 btn-hover px-8 py-6 text-base w-full sm:w-auto"
+              style={{ color: "#100f0f" }}
             >
               Book Your Experience
             </Button>
@@ -98,7 +89,8 @@ export function Hero() {
               onClick={handleScrollToServices}
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white/10 px-8 py-6 text-base w-full sm:w-auto"
+              className="border-white hover:bg-white/10 px-8 py-6 text-base w-full sm:w-auto"
+              style={{ color: "#050505" }}
             >
               Explore Services
             </Button>
