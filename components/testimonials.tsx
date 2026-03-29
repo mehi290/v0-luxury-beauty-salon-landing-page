@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react"
 import Image from "next/image"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { VideoTestimonials } from "./video-testimonials"
 
 const testimonials = [
   {
@@ -120,6 +121,22 @@ export function Testimonials() {
             <span className="text-foreground font-medium">4.9</span>
             <span className="text-muted-foreground text-sm">on Google Reviews</span>
           </div>
+        </div>
+
+        {/* Video Testimonials Section */}
+        <div className={cn(
+          "mb-16 transition-all duration-500 delay-200",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <div className="mb-8">
+            <p className="text-center text-muted-foreground text-sm uppercase tracking-widest mb-3">
+              Client Experiences
+            </p>
+            <h3 className="text-center font-serif text-2xl text-foreground mb-6">
+              Watch What Our Clients Say
+            </h3>
+          </div>
+          <VideoTestimonials />
         </div>
 
         {/* Carousel */}
