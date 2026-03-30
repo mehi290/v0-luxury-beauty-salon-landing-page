@@ -7,8 +7,7 @@ import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: "#services", label: "Services" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#membership", label: "Membership" },
+  { href: "#packages", label: "Packages" },
   { href: "#testimonials", label: "Testimonials" },
   { href: "#contact", label: "Contact" },
 ]
@@ -79,7 +78,7 @@ export function Header() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:block">
-              <Button 
+              <Button
                 className="bg-primary text-primary-foreground hover:bg-primary/90 btn-hover px-6"
                 onClick={(e) => handleNavClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#booking")}
               >
@@ -115,11 +114,11 @@ export function Header() {
         )}
       >
         {/* Backdrop */}
-        <div 
+        <div
           className="absolute inset-0 bg-foreground/20 backdrop-blur-sm"
           onClick={() => setIsMobileMenuOpen(false)}
         />
-        
+
         {/* Menu Content */}
         <div
           className={cn(
@@ -141,9 +140,9 @@ export function Header() {
                 </a>
               ))}
             </nav>
-            
+
             <div className="mt-auto pt-6">
-              <Button 
+              <Button
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 btn-hover py-6 text-base"
                 onClick={(e) => handleNavClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#booking")}
               >

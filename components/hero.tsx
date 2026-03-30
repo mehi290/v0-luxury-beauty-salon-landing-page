@@ -83,7 +83,7 @@ export function Hero() {
               className="bg-primary hover:bg-primary/90 btn-hover px-8 py-6 text-base w-full sm:w-auto"
               style={{ color: "#100f0f" }}
             >
-              Book Your Experience
+              Book Now
             </Button>
             <Button
               onClick={handleScrollToServices}
