@@ -36,7 +36,7 @@ const services: Service[] = [
     description: "Smooth, frizz-free hair that lasts for months",
     price: "From AED 800",
     image: "/images/services/keratin.jpg",
-    video: "/videos/hair-styling.mp4",
+    video: "/videos/keratin.mp4",
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ const services: Service[] = [
     title: "Nail Artistry",
     description: "Manicures, pedicures, and custom nail art",
     price: "From AED 150",
-    image: "/images/services/nails.jpg",
+    image: "/manipedi.jpg",
   },
   {
     id: 6,
