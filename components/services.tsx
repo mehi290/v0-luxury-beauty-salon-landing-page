@@ -21,7 +21,7 @@ const services: Service[] = [
     description: "Expert cuts, blowouts, and styling for every occasion",
     price: "From AED 250",
     image: "/images/services/hair-styling.jpg",
-    video: "/videos/hair-styling.mp4",
+    video: "/videos/hair style.mp4",
   },
   {
     id: 2,
@@ -36,6 +36,7 @@ const services: Service[] = [
     description: "Smooth, frizz-free hair that lasts for months",
     price: "From AED 800",
     image: "/images/services/keratin.jpg",
+    video: "/videos/hair-styling.mp4",
   },
   {
     id: 4,
